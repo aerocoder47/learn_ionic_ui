@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>PageIonAccordian</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-accordion-group
+  expand = 'inset'
+  [disabled] = 'false'
+  [readonly] = 'false'
+   #accordiongroup
+   (ionChange)="accordionGroupChange($event)"
+   [multiple]="true"
+   [value]="[]" 
+    >
+    <ion-accordion value="first">
+      <ion-item slot="header" color="rose">
+        <ion-label>First Accordion</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">First Content</div>
+    </ion-accordion>
+
+    <ion-accordion value="second" [disabled] = 'false'>
+      <ion-item slot="header" color="rose">
+        <ion-label>Second Accordion (Disable)</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">Second Content</div>
+    </ion-accordion>
+
+    <ion-accordion value="third" [readonly]="false">
+      <ion-item slot="header" color="rose">
+        <ion-label>Third Accordion</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">Third Content</div>
+    </ion-accordion>
+</ion-accordion-group>
+
+<ion-button (click)="toggleAccordion()">Toggle Second Accordian</ion-button>
+
+
+</ion-content>

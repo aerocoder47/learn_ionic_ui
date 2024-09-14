@@ -8,8 +8,12 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'page-ion-accordian',
     pathMatch: 'full'
+  },
+  {
+    path: 'page-ion-accordian',
+    loadChildren: () => import('./page-ion-accordian/page-ion-accordian.module').then( m => m.PageIonAccordianPageModule)
   },
 ];
 
