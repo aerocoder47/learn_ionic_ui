@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>PageIonAlert</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+
+    
+  <ion-button id="present-alert">Click Me</ion-button>
+  
+  <ion-alert
+    [isOpen] = "isAlertOpen"
+    trigger="present-alert"
+    header="A Short Title is Best"
+    subHeader = "A Sub Header Is Optional"
+    message="A message shold be short, complete sentence."
+    [buttons]="alertButtons"
+    (didDismiss) = "setResult($event)"
+  >
+  </ion-alert>
+
+
+  <ion-button  id="personInInfoAlert">Click Me 2</ion-button>
+
+  <ion-alert
+    trigger="personInInfoAlert"
+    header="Pease enter your info"
+    [buttons] = "alertButtons2"
+    [inputs] = "alertInputs"
+    (didDismiss) = "infoInAlertDismiss($event)"
+  >
+  </ion-alert>
+
+
+  <ion-button id="RadioButtonAlert">Radio Btn Alert</ion-button>
+  <ion-alert
+    cssClass="my-custom-class"
+    trigger="RadioButtonAlert"
+    header="Select your favorite color"
+    [buttons]="radioAlertButtons"
+    [inputs] = "radioAlertInputs"
+    (didDismiss) = "radioGroupDismiss($event)"
+  >
+  </ion-alert>
+
+  <ion-button id="logoutAlert">Logout</ion-button>
+  <ion-alert
+    trigger="logoutAlert"
+    class="custom-alert"
+    header="You want to logout?"
+    [buttons] = "logoutAlertButtons"
+    ></ion-alert>
+
+</ion-content>

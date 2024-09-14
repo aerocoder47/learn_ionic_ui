@@ -8,12 +8,16 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'page-ion-accordian',
+    redirectTo: 'page-ion-alert',
     pathMatch: 'full'
   },
   {
     path: 'page-ion-accordian',
     loadChildren: () => import('./page-ion-accordian/page-ion-accordian.module').then( m => m.PageIonAccordianPageModule)
+  },
+  {
+    path: 'page-ion-alert',
+    loadChildren: () => import('./page-ion-alert/page-ion-alert.module').then( m => m.PageIonAlertPageModule)
   },
 ];
 
