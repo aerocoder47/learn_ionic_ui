@@ -53,4 +53,92 @@
     [buttons] = "logoutAlertButtons"
     ></ion-alert>
 
+    <div>
+      ----------------------------------------------------
+    </div>
+    <h1>Icon Badge</h1>
+
+    <ion-list>
+      <ion-item>
+        <ion-badge slot="start" >11</ion-badge>
+        <ion-label>Badge in start slot</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-badge slot="end" color="success">22</ion-badge>
+        <ion-label>Badge in end slot</ion-label>
+      </ion-item>
+      <ion-item (click)="notificatinCounter()">
+        <ion-badge slot="end" color="danger">{{ notiCount }}</ion-badge>
+        <ion-label>Notification</ion-label>
+      </ion-item>
+    </ion-list>
+
+    <div>
+      ----------------------------------------------------
+    </div>
+    <h1>Bread Crumbs</h1>
+    <ion-breadcrumbs
+     [maxItems]="maxBreadCrumbs"  
+     (ionCollapsedClick)="expandBreadCrumbs()"
+     >
+    <ion-breadcrumb href="#home">
+      <ion-icon slot="start" name="home"></ion-icon>
+      Home</ion-breadcrumb>
+    <ion-breadcrumb href="#electronics">
+      <ion-icon slot="separator" name="arrow-forward-circle"></ion-icon>
+      Electronics</ion-breadcrumb>
+    <ion-breadcrumb href="#Cameras">
+      <ion-icon slot="start" name="camera"></ion-icon>
+      Cameras</ion-breadcrumb>
+    <ion-breadcrumb href="#film">
+      <ion-icon slot="start" name="film"></ion-icon>
+      Film1</ion-breadcrumb>
+    <ion-breadcrumb href="#film2">
+      <ion-icon slot="start" name="film"></ion-icon>
+      Film2</ion-breadcrumb>
+    <ion-breadcrumb href="#film4">
+      <ion-icon slot="start" name="film"></ion-icon>
+      Film4</ion-breadcrumb>
+    </ion-breadcrumbs>
+
+    <div>-----</div>
+    <ion-breadcrumbs
+      [maxItems] = "4"
+      (ionCollapsedClick) = presentPopOver($event)
+    >
+    <ion-breadcrumb href="#home" color="primary">
+      <ion-icon slot="start" name="home"></ion-icon>
+      Home</ion-breadcrumb>
+    <ion-breadcrumb href="#electronics">
+      <ion-icon slot="separator" name="arrow-forward-circle"></ion-icon>
+      Electronics</ion-breadcrumb>
+    <ion-breadcrumb href="#Cameras">
+      <ion-icon slot="start" name="camera"></ion-icon>
+      Cameras</ion-breadcrumb>
+    <ion-breadcrumb href="#film">
+      <ion-icon slot="start" name="film"></ion-icon>
+      Film1</ion-breadcrumb>
+    <ion-breadcrumb href="#film2">
+      <ion-icon slot="start" name="film"></ion-icon>
+      Film2</ion-breadcrumb>
+    <ion-breadcrumb href="#film4">
+      <ion-icon slot="start" name="film"></ion-icon>
+      Film4</ion-breadcrumb>
+    </ion-breadcrumbs>
+    <ion-popover #popover [isOpen]="isOpen" (didDismiss)="isOpen =false">
+      <ng-template>
+        <ion-content>
+          <ion-list>
+            <ion-item
+            *ngFor="let breadcrumb of collapsedBreadcrumbs; last as isLast"
+            
+            [lines]="isLast ? 'none' : null"
+            >
+              <ion-label> {{ breadcrumb.textContent }}</ion-label>
+            </ion-item>
+           
+          </ion-list>
+        </ion-content>
+      </ng-template>
+    </ion-popover>
 </ion-content>

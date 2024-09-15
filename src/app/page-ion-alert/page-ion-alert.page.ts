@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -143,5 +143,23 @@ export class PageIonAlertPage implements OnInit {
       cssClass : "alert-button-confirm"
     }
   ]
+  
+  public notiCount = 1;
+  public notificatinCounter(){
+      this.notiCount += 1
+  }
 
+  // BreadCrumbs
+  maxBreadCrumbs = 4;
+  public expandBreadCrumbs() {
+    this.maxBreadCrumbs = 10
+  }
+  @ViewChild('popover') popover: any;
+  isOpen = false;
+  collapsedBreadcrumbs: HTMLIonBreadcrumbsElement[] = [];
+  async presentPopOver(e: any) {
+    this.collapsedBreadcrumbs = (e as CustomEvent).detail.collapsedBreadcrumbs;
+    this.popover.event = e;
+    this.isOpen = true
+  }
 }

@@ -72,3 +72,11 @@ ion-alert.custom-alert {
     border-bottom-right-radius: 13px;
     border-top-right-radius: 13px;
   }
+
+
+  ion-badge {
+    --background: purple;
+    --color: white;
+    --padding-end: 20px;
+    --padding-start: 20px;
+  }
